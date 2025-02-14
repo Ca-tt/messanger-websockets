@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script type="module">
+        const ws = new WebSocket("ws://127.0.0.1:8000/ws/testroom");
+
+        ws.onopen = () => {
+            console.log("✅ Connected to WebSocket");
+            ws.send("Hello from the browser!");
+        };
+
+        ws.onmessage = (event) => {
+            console.log("📩 Message from server:", event.data);
+        };
+
+        ws.onerror = (error) => {
+            console.error("❌ WebSocket Error:", error);
+        };
+
+        ws.onclose = () => {
+            console.log("🔴 WebSocket Closed");
+        };
+
+    </script>
+</body>
+
+</html>

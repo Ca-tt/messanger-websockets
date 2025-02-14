@@ -1,0 +1,4 @@
+[tool.black]
+line-length = 90 
+target-version = ['py312', 'py313']
+include = '\.pyi?$'  # Only format Python files
